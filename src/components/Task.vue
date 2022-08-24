@@ -1,16 +1,21 @@
 <script setup>
+    const emit = defineEmits(['delete-task']);
     defineProps({
         task: Object
     });
+
+    function onDelete(id){
+        emit("delete-task", id);
+    }
 </script>
 <template>
     <div :class="[ task.reminder ? 'reminder' : '', 'task' ]">
         <h3>
             {{task.text}}
             
-            <i class="fas fa-close"></i>
+            <i @click="onDelete(task.id)" class="fas fa-close"></i>
         </h3>
-        <p3>{{task.day}}</p3> 
+        <h3>{{task.day}}</h3> 
     </div>
 </template>
 

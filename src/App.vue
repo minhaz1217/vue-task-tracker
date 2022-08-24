@@ -45,12 +45,18 @@ onMounted(()=>{
     }
   ];
 });
+
+function deleteTask(id){
+  if(confirm("Are you sure?")){
+    tasks.value = tasks.value.filter( (x)=>x.id != id );
+  }
+}
 </script>
 
 <template>
   <div class="container">
     <Header title="Task Tracker"/>
-    <Tasks :tasks="tasks"/>
+    <Tasks :tasks="tasks" @delete-task="deleteTask"/>
   </div>
 </template>
 
