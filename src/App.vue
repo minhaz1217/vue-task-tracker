@@ -3,8 +3,10 @@ import { createDOMCompilerError } from '@vue/compiler-dom';
 import { onMounted, ref } from '@vue/runtime-core';
 import Header from './components/Header.vue';
 import Tasks from './components/Tasks.vue';
+import AddTask from './components/AddTask.vue';
 
 let tasks = ref([])
+let showAddTask = ref(false);
 onMounted(()=>{
   tasks.value = [
     {
@@ -54,12 +56,26 @@ function deleteTask(id){
 function toggleReminder(id){
   tasks.value = tasks.value.map( (task)=> task.id == id ? { ...task, reminder: !task.reminder } : task);
 }
+
+function addTask(task){
+  tasks.value = [ ...tasks.value, task];
+}
+
+function toggleShowAddTask(){
+  showAddTask.value = !showAddTask.value;
+}
 </script>
 
 <template>
   <div class="container">
-    <Header title="Task Tracker"/>
-    <Tasks  @toggle-reminder="toggleReminder" :tasks="tasks" @delete-task="deleteTask"/>
+    <Header 
+      @toggle-show-add-task="toggleShowAddTask"
+      title="Task Tracker"
+      :showAddTask="showAddTask" />
+    <div v-if="showAddTask">
+      <AddTask @add-task="addTask" />
+    </div>
+    <Tasks @toggle-reminder="toggleReminder" :tasks="tasks" @delete-task="deleteTask"/>
   </div>
 </template>
 

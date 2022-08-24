@@ -1,5 +1,5 @@
 <script setup>
-    const emit = defineEmits(['delete-task']);
+    const emit = defineEmits(['delete-task', 'toggle-reminder']);
     defineProps({
         task: Object
     });

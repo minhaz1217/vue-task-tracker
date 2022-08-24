@@ -2,15 +2,22 @@
 import Button from './Button.vue';
 
 defineProps({
-    title: String
+    title: String,
+    showAddTask: Boolean
 });
+
+const emit = defineEmits(['toggle-show-add-task']);
 
 </script>
 
 
 <template>
     <h1>{{ title }}</h1>
-    <Button text="Add task" color="green" />
+    <Button 
+        @btn-clicked="$emit('toggle-show-add-task')" 
+        :text="showAddTask ? 'Close': 'Add task'" 
+        :color="showAddTask ? 'red': 'green'" 
+    />
 </template>
 
 <style scoped>

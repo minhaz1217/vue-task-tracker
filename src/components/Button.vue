@@ -4,10 +4,16 @@ defineProps({
     color: String
 });
 
+const emit = defineEmits(['btn-clicked']);
 function onclick(){
-    console.log("Hi");
+    emit("btn-clicked");
 }
 </script>
 <template>
-    <button v-on:click="onclick" :style="{background: color}" class="btn">{{text}}</button>
+    <button 
+    v-on:click="onclick" 
+    :style="{background: color}" 
+    class="btn">
+        {{text}}
+    </button>
 </template>
