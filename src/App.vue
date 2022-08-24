@@ -51,12 +51,15 @@ function deleteTask(id){
     tasks.value = tasks.value.filter( (x)=>x.id != id );
   }
 }
+function toggleReminder(id){
+  tasks.value = tasks.value.map( (task)=> task.id == id ? { ...task, reminder: !task.reminder } : task);
+}
 </script>
 
 <template>
   <div class="container">
     <Header title="Task Tracker"/>
-    <Tasks :tasks="tasks" @delete-task="deleteTask"/>
+    <Tasks  @toggle-reminder="toggleReminder" :tasks="tasks" @delete-task="deleteTask"/>
   </div>
 </template>
 
