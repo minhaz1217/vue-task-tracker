@@ -8,19 +8,19 @@
         },
         {
           "id": 2,
-          "text": "Doctors Appointment 2",
+          "text": "Meeting With boss",
           "day": "Marth 1st at 2:30 pm",
           "reminder": false
         },
         {
           "id": 3,
-          "text": "Doctors Appointment 3",
+          "text": "Food shopping",
           "day": "Marth 1st at 2:30 pm",
           "reminder": true
         },
         {
           "id": 4,
-          "text": "Doctors Appointment 4",
+          "text": "Going to school",
           "day": "Marth 1st at 2:30 pm",
           "reminder": true
         },

@@ -4,48 +4,12 @@ import { onMounted, ref } from '@vue/runtime-core';
 import Header from './components/Header.vue';
 import Tasks from './components/Tasks.vue';
 import AddTask from './components/AddTask.vue';
+import {fetchTasks} from "./services/TaskService"
 
 let tasks = ref([])
 let showAddTask = ref(false);
-onMounted(()=>{
-  tasks.value = [
-    {
-      id: 1,
-      text: "Doctors Appointment 1",
-      day: "Marth 1st at 2:30 pm",
-      reminder: true
-    },
-    {
-      id: 2,
-      text: "Doctors Appointment 2",
-      day: "Marth 1st at 2:30 pm",
-      reminder: false
-    },
-    {
-      id: 3,
-      text: "Doctors Appointment 3",
-      day: "Marth 1st at 2:30 pm",
-      reminder: true
-    },
-    {
-      id: 4,
-      text: "Doctors Appointment 4",
-      day: "Marth 1st at 2:30 pm",
-      reminder: true
-    },
-    {
-      id: 5,
-      text: "Doctors Appointment 5",
-      day: "Marth 1st at 2:30 pm",
-      reminder: false
-    },
-    {
-      id: 6,
-      text: "Doctors Appointment 6",
-      day: "Marth 1st at 2:30 pm",
-      reminder: false
-    }
-  ];
+onMounted(async ()=>{
+  tasks.value = await fetchTasks();
 });
 
 function deleteTask(id){
@@ -64,6 +28,7 @@ function addTask(task){
 function toggleShowAddTask(){
   showAddTask.value = !showAddTask.value;
 }
+
 </script>
 
 <template>
