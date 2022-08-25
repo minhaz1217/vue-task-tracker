@@ -38,7 +38,7 @@ function onSubmit(e){
     }
 
     const newTask = {
-        id: Math.floor(Math.random()*100000),
+        // id: Math.floor(Math.random()*100000),
         text: text.value,
         day: day.value,
         reminder: reminder.value

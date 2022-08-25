@@ -4,7 +4,7 @@ import { onMounted, ref } from '@vue/runtime-core';
 import Header from './components/Header.vue';
 import Tasks from './components/Tasks.vue';
 import AddTask from './components/AddTask.vue';
-import {fetchTasks} from "./services/TaskService"
+import {fetchTasks, createTask, removeTask, setTaskToToggle } from "./services/TaskService"
 
 let tasks = ref([])
 let showAddTask = ref(false);
@@ -12,17 +12,25 @@ onMounted(async ()=>{
   tasks.value = await fetchTasks();
 });
 
-function deleteTask(id){
+async function deleteTask(id){
   if(confirm("Are you sure?")){
-    tasks.value = tasks.value.filter( (x)=>x.id != id );
+    const data = await removeTask(id);
+    if(data === true){
+      tasks.value = tasks.value.filter( (x)=>x.id != id );
+    }else{
+      alert("Error on deleting");
+    }
   }
 }
-function toggleReminder(id){
-  tasks.value = tasks.value.map( (task)=> task.id == id ? { ...task, reminder: !task.reminder } : task);
+async function toggleReminder(id){
+  const data = await setTaskToToggle(id);
+  tasks.value = tasks.value.map( (task)=> task.id == id ? { ...task, reminder: data.reminder } : task);
 }
 
-function addTask(task){
-  tasks.value = [ ...tasks.value, task];
+async function addTask(task){
+  const data = await createTask(task);
+  console.log("Data",task, data);
+  tasks.value = [ ...tasks.value, data];
 }
 
 function toggleShowAddTask(){
