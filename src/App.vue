@@ -2,36 +2,10 @@
 import { createDOMCompilerError } from '@vue/compiler-dom';
 import { onMounted, ref } from '@vue/runtime-core';
 import Header from './components/Header.vue';
-import Tasks from './components/Tasks.vue';
-import AddTask from './components/AddTask.vue';
-import {fetchTasks, createTask, removeTask, setTaskToToggle } from "./services/TaskService"
+import Footer from "./components/Footer.vue";
 
-let tasks = ref([])
+
 let showAddTask = ref(false);
-onMounted(async ()=>{
-  tasks.value = await fetchTasks();
-});
-
-async function deleteTask(id){
-  if(confirm("Are you sure?")){
-    const data = await removeTask(id);
-    if(data === true){
-      tasks.value = tasks.value.filter( (x)=>x.id != id );
-    }else{
-      alert("Error on deleting");
-    }
-  }
-}
-async function toggleReminder(id){
-  const data = await setTaskToToggle(id);
-  tasks.value = tasks.value.map( (task)=> task.id == id ? { ...task, reminder: data.reminder } : task);
-}
-
-async function addTask(task){
-  const data = await createTask(task);
-  console.log("Data",task, data);
-  tasks.value = [ ...tasks.value, data];
-}
 
 function toggleShowAddTask(){
   showAddTask.value = !showAddTask.value;
@@ -45,10 +19,8 @@ function toggleShowAddTask(){
       @toggle-show-add-task="toggleShowAddTask"
       title="Task Tracker"
       :showAddTask="showAddTask" />
-    <div v-if="showAddTask">
-      <AddTask @add-task="addTask" />
-    </div>
-    <Tasks @toggle-reminder="toggleReminder" :tasks="tasks" @delete-task="deleteTask"/>
+      <router-view :showAddTask="showAddTask"></router-view>
+    <Footer />
   </div>
 </template>
 

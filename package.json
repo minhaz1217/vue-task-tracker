@@ -6,11 +6,12 @@
     "build": "vite build",
     "preview": "vite preview --port 4173",
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs --fix --ignore-path .gitignore",
-    "backend" : "json-server --watch db.json --port 5099"
+    "backend": "json-server --watch db.json --port 5099"
   },
   "dependencies": {
+    "json-server": "0.17.0",
     "vue": "^3.2.37",
-    "json-server" : "0.17.0"
+    "vue-router": "^4.0.13"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^3.0.1",
