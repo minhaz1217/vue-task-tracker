@@ -1,19 +1,18 @@
 # task-tracker
+It connects to a backend and it can create, update, delete and list different tasks.
 
-This template should help get you started developing with Vue 3 in Vite.
-
-## Recommended IDE Setup
-
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
-
-## Customize configuration
-
-See [Vite Configuration Reference](https://vitejs.dev/config/).
 
 ## Project Setup
 
 ```sh
 npm install
+```
+
+
+## To run the backend server use
+
+```sh
+npm run build
 ```
 
 ### Compile and Hot-Reload for Development
