@@ -1,5 +1,5 @@
 <script setup>
-import { computed, ref } from '@vue/runtime-core';
+import { computed, ref } from 'vue';
 import { useRoute } from 'vue-router'
 import Button from './Button.vue';
 

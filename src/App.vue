@@ -1,6 +1,6 @@
 <script setup>
 import { createDOMCompilerError } from '@vue/compiler-dom';
-import { onMounted, ref } from '@vue/runtime-core';
+import { onMounted, ref } from 'vue';
 import Header from './components/Header.vue';
 import Footer from "./components/Footer.vue";
 

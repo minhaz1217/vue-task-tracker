@@ -10,19 +10,19 @@
       "id": 2,
       "text": "Meeting With boss",
       "day": "Marth 1st at 2:30 pm",
-      "reminder": false
+      "reminder": true
     },
     {
       "id": 3,
       "text": "Food shopping",
       "day": "Marth 1st at 2:30 pm",
-      "reminder": true
+      "reminder": false
     },
     {
       "id": 4,
       "text": "Going to school",
       "day": "Marth 1st at 2:30 pm",
-      "reminder": true
+      "reminder": false
     },
     {
       "id": 5,

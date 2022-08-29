@@ -1,8 +1,8 @@
 <script setup>
 import Tasks from '../components/Tasks.vue';
 import AddTask from '../components/AddTask.vue';
-import { ref } from '@vue/reactivity';
-import { onMounted } from '@vue/runtime-core';
+import { ref } from 'vue';
+import { onMounted } from 'vue';
 import {fetchTasks, createTask, removeTask, setTaskToToggle } from "../services/TaskService"
 
 

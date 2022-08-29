@@ -1,5 +1,5 @@
 <script setup>
-import { onMounted } from "@vue/runtime-core";
+import { onMounted } from "vue";
 import Task from "./Task.vue";
 defineEmits(['delete-task', 'toggle-reminder']);
 const props = defineProps({

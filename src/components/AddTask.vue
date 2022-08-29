@@ -20,7 +20,7 @@
 </template>
 
 <script setup>
-import { ref } from '@vue/runtime-core';
+import { ref } from 'vue';
 
 const emit = defineEmits(["add-task"]);
 
@@ -32,7 +32,7 @@ let reminder = ref("");
 function onSubmit(e){
     e.preventDefault();
 
-    if(!text){
+    if(!text.value){
         alert("Please add a task");
         return;
     }
